@@ -1,0 +1,36 @@
+{
+  "total": 81,
+  "counts": {
+    "PASSED": 46,
+    "REJECTED": 31,
+    "ERROR": 4
+  },
+  "rejected": [
+    "skytale",
+    "gandalf-breaker",
+    "vmware-aiops",
+    "video-agent",
+    "react-local-biz",
+    "ghost-browser",
+    "safe-update-merge",
+    "housing-scout-pro",
+    "insforge-skills",
+    "api-gateway",
+    "octomail",
+    "notion-mcp",
+    "granola-api",
+    "social-ops",
+    "apple-music-dj",
+    "superfluid",
+    "cron-gate",
+    "signalradar",
+    "fuku-predictions",
+    "free-search-aggregator"
+  ],
+  "errors": [
+    "vmware-monitor",
+    "deep-scraper-amazon",
+    "http-retry-c",
+    "desktop-control"
+  ]
+}

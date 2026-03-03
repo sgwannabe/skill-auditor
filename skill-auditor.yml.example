@@ -1,0 +1,6 @@
+# skill-auditor policy example
+failOn: danger
+include: "*.md,*.py,*.js,*.ts,*.json,*.yaml,*.yml,*.sh"
+exclude: ".git/*,node_modules/*,__pycache__/*,*.min.js,report.json,*/references/*,*/assets/*"
+allowDomains: "www.w3.org,api.music.apple.com,developer.apple.com,github.com"
+strictDocs: false

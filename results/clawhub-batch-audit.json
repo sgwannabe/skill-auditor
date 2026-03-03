@@ -1,0 +1,1582 @@
+{
+  "grade": "WARNING",
+  "scanned_files": 472,
+  "findings_total": 174,
+  "severity": {
+    "danger": 0,
+    "warning": 174,
+    "executable": 150
+  },
+  "categories": {
+    "shell-exec": 11,
+    "network-call": 163
+  },
+  "findings": [
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/veille/README.md",
+      "line": 244,
+      "severity": "warning",
+      "category": "shell-exec",
+      "pattern": "subprocess shell true",
+      "snippet": "- **Subprocess isolation**: skill-to-skill calls use `subprocess.run()` (never `shell=True`). Script paths are validated to reside under `~/.openclaw/workspace/skills/`.",
+      "executable_context": false
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/veille/SKILL.md",
+      "line": 143,
+      "severity": "warning",
+      "category": "shell-exec",
+      "pattern": "subprocess shell true",
+      "snippet": "- Dispatch delegates to other OpenClaw skills via `subprocess.run()` (never `shell=True`). Script paths are validated to reside under `~/.openclaw/workspace/skills/` before execution, preventing path ",
+      "executable_context": false
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/veille/SKILL.md",
+      "line": 325,
+      "severity": "warning",
+      "category": "shell-exec",
+      "pattern": "exec/eval",
+      "snippet": "- Contains shell shebangs (`#!/`), SSH keys, PGP blocks, or code injection patterns (`eval(`, `exec(`, `__import__(`, `import os`, `import subprocess`)",
+      "executable_context": false
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/veille/SKILL.md",
+      "line": 337,
+      "severity": "warning",
+      "category": "shell-exec",
+      "pattern": "exec/eval",
+      "snippet": "result = exec(\"python3 scripts/veille.py fetch --hours 24 --filter-seen --filter-topic\")",
+      "executable_context": false
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/3dprint/SKILL.md",
+      "line": 65,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl http://10.0.0.41:8080/camera",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/3dprint/SKILL.md",
+      "line": 66,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl http://10.0.0.41:8080/",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/api-gateway/SKILL.md",
+      "line": 610,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "- When using curl with URLs containing brackets (`fields[]`, `sort[]`, `records[]`), use the `-g` flag to disable glob parsing",
+      "executable_context": false
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/api-gateway/SKILL.md",
+      "line": 611,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "- When piping curl output to `jq`, environment variables may not expand correctly in some shells, which can cause \"Invalid API key\" errors",
+      "executable_context": false
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md",
+      "line": 47,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST \"https://rb.all-completed.com/api/sessions\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md",
+      "line": 59,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://rb.all-completed.com/api/sessions\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md",
+      "line": 66,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://rb.all-completed.com/api/stored-sessions\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md",
+      "line": 75,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST \"https://rb.all-completed.com/api/sessions/{session_id}/navigate\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md",
+      "line": 81,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST \"https://rb.all-completed.com/api/sessions/{session_id}/navigate\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md",
+      "line": 91,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://rb.all-completed.com/api/sessions/{session_id}/json\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md",
+      "line": 95,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://rb.all-completed.com/api/sessions/{session_id}/json?filter=interactive\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md",
+      "line": 99,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://rb.all-completed.com/api/sessions/{session_id}/json?depth=5\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md",
+      "line": 109,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://rb.all-completed.com/api/sessions/{session_id}/text\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md",
+      "line": 113,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://rb.all-completed.com/api/sessions/{session_id}/text?mode=raw\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md",
+      "line": 123,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://rb.all-completed.com/api/sessions/{session_id}/screenshot\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md",
+      "line": 127,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://rb.all-completed.com/api/sessions/{session_id}/screenshot?raw=true\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md",
+      "line": 132,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://rb.all-completed.com/api/sessions/{session_id}/screenshot?quality=50&raw=true\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md",
+      "line": 141,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST \"https://rb.all-completed.com/api/sessions/{session_id}/action\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md",
+      "line": 147,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST \"https://rb.all-completed.com/api/sessions/{session_id}/action\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md",
+      "line": 153,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST \"https://rb.all-completed.com/api/sessions/{session_id}/action\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md",
+      "line": 159,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST \"https://rb.all-completed.com/api/sessions/{session_id}/action\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md",
+      "line": 165,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST \"https://rb.all-completed.com/api/sessions/{session_id}/action\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md",
+      "line": 170,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST \"https://rb.all-completed.com/api/sessions/{session_id}/action\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md",
+      "line": 182,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://rb.all-completed.com/api/sessions/{session_id}/html\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/portrait-generator/SKILL.md",
+      "line": 234,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "`[\"auto\",\"Duchenne smile\",\"social smile\",\"bitter smile\",\"coy smile\",\"broad grin\",\"closed-lip smile\",\"smirk\",\"radiant joy\",\"gentle warmth\",\"laughing\",\"tearful\",\"melancholic gaze\",\"lip tremble\",\"downcas",
+      "executable_context": false
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/apple-music-dj/CHANGELOG.md",
+      "line": 93,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "- Tokens passed via `curl -K` config files instead of CLI arguments (prevents `ps aux` exposure)",
+      "executable_context": false
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/apple-music-dj/clawhub.json",
+      "line": 12,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "\"bins\": [\"curl\", \"jq\", \"python3\"],",
+      "executable_context": false
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/apple-music-dj/README.md",
+      "line": 39,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "| **CLI tools** | `curl`, `jq` (usually pre-installed on macOS) |",
+      "executable_context": false
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/apple-music-dj/CONTRIBUTING.md",
+      "line": 16,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "- `curl`, `jq`, `python3` installed",
+      "executable_context": false
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/apple-music-dj/SKILL.md",
+      "line": 40,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "- curl",
+      "executable_context": false
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/pullthatupjamie/SKILL.md",
+      "line": 73,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -s -X POST -H \"Content-Type: application/json\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/pullthatupjamie/SKILL.md",
+      "line": 92,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -s -X POST -H \"Content-Type: application/json\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/pullthatupjamie/SKILL.md",
+      "line": 104,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -s -H \"Authorization: PREIMAGE:PAYMENT_HASH\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/prefy/SKILL.md",
+      "line": 12,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl https://prefy.com/api/v1/chat/completions \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/excalidraw-canvas/SKILL.md",
+      "line": 13,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "RESULT=$(curl -s -m 60 -X POST https://excalidraw-mcp.up.railway.app/api/render \\",
+      "executable_context": false
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/excalidraw-canvas/SKILL.md",
+      "line": 66,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "RESULT=$(curl -s -m 60 -X POST https://excalidraw-mcp.up.railway.app/api/render \\",
+      "executable_context": false
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/cluster-agent-swarm-skills/SKILL.md",
+      "line": 33,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "- curl",
+      "executable_context": false
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/octomail/SKILL-dev.md",
+      "line": 42,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -s -X POST https://api.octomail-dev.com/v1/agents/register \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/octomail/SKILL-dev.md",
+      "line": 68,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -s -X POST https://api.octomail-dev.com/v1/messages \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/octomail/SKILL-dev.md",
+      "line": 98,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -s \"https://api.octomail-dev.com/v1/messages?unread=true\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/octomail/SKILL-dev.md",
+      "line": 117,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -s https://api.octomail-dev.com/v1/messages/{id} \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/octomail/SKILL-dev.md",
+      "line": 127,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -s https://api.octomail-dev.com/v1/messages/{id}/attachments/0 \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/octomail/SKILL-dev.md",
+      "line": 150,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -s https://api.octomail-dev.com/skill.md \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/octomail/SKILL-dev.md",
+      "line": 156,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -s https://api.octomail-dev.com/v1/openapi.json \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/octomail/SKILL-dev.md",
+      "line": 162,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -s \"https://api.octomail-dev.com/v1/messages?from=system@octomail-dev.com\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/octomail/SKILL.md",
+      "line": 39,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -s -X POST https://api.octomail.ai/v1/agents/register \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/octomail/SKILL.md",
+      "line": 64,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -s -X POST https://api.octomail.ai/v1/messages \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/octomail/SKILL.md",
+      "line": 93,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -s \"https://api.octomail.ai/v1/messages?unread=true\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/octomail/SKILL.md",
+      "line": 111,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -s https://api.octomail.ai/v1/messages/{id} \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/octomail/SKILL.md",
+      "line": 120,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -s https://api.octomail.ai/v1/messages/{id}/attachments/0 \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/octomail/SKILL.md",
+      "line": 141,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -s https://api.octomail.ai/skill.md",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/octomail/SKILL.md",
+      "line": 146,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -s https://api.octomail.ai/v1/openapi.json | jq .",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/octomail/SKILL.md",
+      "line": 151,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -s \"https://api.octomail.ai/v1/messages?from=system@octomail.ai\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/octomail/CLAUDE.md",
+      "line": 36,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "- Keep endpoint table, curl examples, error codes, and query params up to date.",
+      "executable_context": false
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/safe-update-merge/SKILL.md",
+      "line": 150,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "**SKILL.md says \"No Network Installs\" — this refers to the skill package itself (no curl/wget/npm install in the skill's own setup). It does NOT mean the merge workflow avoids network; `git fetch upst",
+      "executable_context": false
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/safe-update-merge/SKILL.md",
+      "line": 150,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "wget invocation",
+      "snippet": "**SKILL.md says \"No Network Installs\" — this refers to the skill package itself (no curl/wget/npm install in the skill's own setup). It does NOT mean the merge workflow avoids network; `git fetch upst",
+      "executable_context": false
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/notion-api-skill/SKILL.md",
+      "line": 460,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "- IMPORTANT: When using curl commands, use `curl -g` when URLs contain brackets (`fields[]`, `sort[]`, `records[]`) to disable glob parsing",
+      "executable_context": false
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/notion-api-skill/SKILL.md",
+      "line": 461,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "- IMPORTANT: When piping curl output to `jq` or other commands, environment variables like `$MATON_API_KEY` may not expand correctly in some shell environments. You may get \"Invalid API key\" errors wh",
+      "executable_context": false
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/ai-economic-tracker/SKILL.md",
+      "line": 62,
+      "severity": "warning",
+      "category": "shell-exec",
+      "pattern": "exec/eval",
+      "snippet": "exec(\"python3 ~/.openclaw/workspace/skills/ai-economic-tracker/tracker.py report\")",
+      "executable_context": false
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 104,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -o ~/.openclaw/skills/clawtrust.md \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 203,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawtrust.org/api/agent-register \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 256,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl https://clawtrust.org/api/passport/scan/jarvis.molt",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 259,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl https://clawtrust.org/api/passport/scan/0xAGENT_WALLET",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 262,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl https://clawtrust.org/api/passport/scan/42",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 311,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl https://clawtrust.org/.well-known/agents.json",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 335,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl https://clawtrust.org/.well-known/agent-card.json",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 341,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl https://clawtrust.org/api/agents/<agent-id>/card/metadata",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 392,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl https://clawtrust.org/api/molt-domains/check/jarvis",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 408,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawtrust.org/api/molt-domains/register-autonomous \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 454,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl https://clawtrust.org/api/leaderboard",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 462,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawtrust.org/api/agent-heartbeat \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 477,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawtrust.org/api/agent-skills \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 496,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/gigs/discover?skills=code-review,audit&minBudget=50&sortBy=budget_high&limit=10\"",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 504,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawtrust.org/api/gigs/<gig-id>/apply \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 515,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawtrust.org/api/gigs/<gig-id>/submit-deliverable \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 528,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/agents/<agent-id>/gigs?role=assignee\"",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 548,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/trust-check/<wallet>?minScore=30&maxRisk=60\"",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 554,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/risk/<agent-id>\"",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 606,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/x402/payments/<agent-id>\"",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 607,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/x402/stats\"",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 617,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/agents/discover?skills=solidity,audit&minScore=50&maxRisk=40&sortBy=score_desc&limit=10\"",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 629,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/agents/<agent-id>/credential\"",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 659,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawtrust.org/api/credentials/verify \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 671,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawtrust.org/api/gigs/<gig-id>/offer/<target-agent-id> \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 680,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawtrust.org/api/offers/<offer-id>/respond \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 689,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/agents/<agent-id>/offers\"   # Check pending offers",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 701,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/bond/<agent-id>/status\"        # Bond status + tier",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 702,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawtrust.org/api/bond/<agent-id>/deposit \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 704,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawtrust.org/api/bond/<agent-id>/withdraw \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 706,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/bond/<agent-id>/eligibility\"   # Eligibility check",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 707,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/bond/<agent-id>/history\"       # Bond history",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 708,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/bond/<agent-id>/performance\"   # Performance score",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 709,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/bond/network/stats\"            # Network-wide stats",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 724,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawtrust.org/api/escrow/create \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 728,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawtrust.org/api/escrow/release \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 732,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawtrust.org/api/escrow/dispute \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 736,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/escrow/<gig-id>\"      # Escrow status",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 737,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/agents/<agent-id>/earnings\"  # Total earned",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 749,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawtrust.org/api/crews \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 765,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/crews\"                            # List all crews",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 766,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/crews/<crew-id>\"                  # Crew details",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 767,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/crews/<crew-id>/passport\"         # Crew passport PNG",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 769,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawtrust.org/api/crews/<crew-id>/apply/<gig-id> \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 773,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/agents/<agent-id>/crews\"          # Agent's crews",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 787,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawtrust.org/api/swarm/validate \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 795,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawtrust.org/api/validations/vote \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 815,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/agents/<agent-id>/messages\" -H \"x-agent-id: <agent-id>\"",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 817,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawtrust.org/api/agents/<agent-id>/messages/<other-agent-id> \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 822,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/agents/<agent-id>/messages/<other-agent-id>\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 825,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawtrust.org/api/agents/<agent-id>/messages/<message-id>/accept \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 828,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/agents/<agent-id>/unread-count\" -H \"x-agent-id: <agent-id>\"",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 838,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawtrust.org/api/reviews \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 848,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/reviews/agent/<agent-id>\"",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 858,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/gigs/<gig-id>/receipt\"",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 859,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/trust-receipts/agent/<agent-id>\"",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 869,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/slashes?limit=50&offset=0\"      # All slashes",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 870,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/slashes/<slash-id>\"              # Slash detail",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 871,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/slashes/agent/<agent-id>\"        # Agent slash history",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 881,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawtrust.org/api/agents/<old-agent-id>/inherit-reputation \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 889,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/agents/<agent-id>/migration-status\"",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 897,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawtrust.org/api/agents/<agent-id>/follow -H \"x-agent-id: <your-agent-id>\"",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 898,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X DELETE https://clawtrust.org/api/agents/<agent-id>/follow -H \"x-agent-id: <your-agent-id>\"",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 899,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/agents/<agent-id>/followers\"",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 900,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawtrust.org/api/agents/<agent-id>/following\"",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 901,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawtrust.org/api/agents/<agent-id>/comment \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 1103,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl https://clawtrust.org/api/contracts",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawtrust/SKILL.md",
+      "line": 1126,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "- ✅ All curl examples call only `clawtrust.org` — agents never directly call Circle or Sepolia RPCs",
+      "executable_context": false
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/runrelay/SKILL.md",
+      "line": 28,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://api.runrelay.io/api/search-flights \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/runrelay/SKILL.md",
+      "line": 48,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://runrelay-hotels.fly.dev/api/search-hotels \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/runrelay/SKILL.md",
+      "line": 63,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://api.runrelay.io/api/book-flight \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/runrelay/SKILL.md",
+      "line": 84,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://prefy.com/api/v1/orchestrate \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/react-local-biz/SKILL.md",
+      "line": 137,
+      "severity": "warning",
+      "category": "shell-exec",
+      "pattern": "exec/eval",
+      "snippet": "# Keep alive via OpenClaw background exec (not nohup):",
+      "executable_context": false
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/react-local-biz/SKILL.md",
+      "line": 138,
+      "severity": "warning",
+      "category": "shell-exec",
+      "pattern": "exec/eval",
+      "snippet": "# exec(command: \"cd <dir> && npx vite --host 0.0.0.0 --port 5173\", background: true)",
+      "executable_context": false
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawexchange/SKILL.md",
+      "line": 46,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -s https://clawexchange.org/skill.md",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawexchange/SKILL.md",
+      "line": 49,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawexchange.org/api/v1/auth/register-v2 \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawexchange/SKILL.md",
+      "line": 54,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawexchange.org/api/v1/auth/challenge",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawexchange/SKILL.md",
+      "line": 56,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawexchange.org/api/v1/auth/register \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawexchange/SKILL.md",
+      "line": 78,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl \"https://clawexchange.org/api/v1/registry/search?capability=code-review\"",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawexchange/SKILL.md",
+      "line": 81,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawexchange.org/api/v1/registry/resolve \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawexchange/SKILL.md",
+      "line": 86,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X PATCH https://clawexchange.org/api/v1/agents/me \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawexchange/SKILL.md",
+      "line": 95,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawexchange.org/api/v1/tasks \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawexchange/SKILL.md",
+      "line": 101,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawexchange.org/api/v1/tasks/TASK_ID/accept \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawexchange/SKILL.md",
+      "line": 108,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawexchange.org/api/v1/messages \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawexchange/SKILL.md",
+      "line": 117,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl https://clawexchange.org/api/v1/listings",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawexchange/SKILL.md",
+      "line": 120,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawexchange.org/api/v1/transactions/buy \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawexchange/SKILL.md",
+      "line": 129,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl https://clawexchange.org/api/v1/agents/AGENT_ID",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawexchange/SKILL.md",
+      "line": 132,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawexchange.org/api/v1/transactions/TX_ID/review \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawexchange/SKILL.md",
+      "line": 138,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -X POST https://clawexchange.org/api/v1/trust/endorse \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/clawexchange/SKILL.md",
+      "line": 156,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl https://clawexchange.org/api/v1/messages \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/prior/scripts/prior.js",
+      "line": 735,
+      "severity": "warning",
+      "category": "shell-exec",
+      "pattern": "exec/eval",
+      "snippet": "cp.exec(`start \"\" \"${url}\"`).unref();",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/prior/scripts/prior.js",
+      "line": 737,
+      "severity": "warning",
+      "category": "shell-exec",
+      "pattern": "exec/eval",
+      "snippet": "cp.exec(`open \"${url}\"`).unref();",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/prior/scripts/prior.js",
+      "line": 739,
+      "severity": "warning",
+      "category": "shell-exec",
+      "pattern": "exec/eval",
+      "snippet": "cp.exec(`xdg-open \"${url}\"`).unref();",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/apple-music-dj/scripts/verify_setup.sh",
+      "line": 21,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "for bin in curl jq python3; do",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/apple-music-dj/scripts/verify_setup.sh",
+      "line": 176,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "dev_code=$(curl -s -o /dev/null -w \"%{http_code}\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/apple-music-dj/scripts/verify_setup.sh",
+      "line": 203,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "user_code=$(curl -s -o /dev/null -w \"%{http_code}\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/apple-music-dj/scripts/apple_music_api.sh",
+      "line": 23,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "# Retry a curl command with exponential backoff on 429 responses.",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/apple-music-dj/scripts/apple_music_api.sh",
+      "line": 36,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "http_code=$(curl -sS -o \"$tmpfile\" -w '%{http_code}' \"$@\") || curl_exit=$?",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/apple-music-dj/scripts/apple_music_api.sh",
+      "line": 38,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "echo \"ERROR: curl failed (exit $curl_exit). Check network connectivity.\" >&2",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/apple-music-dj/scripts/apple_music_api.sh",
+      "line": 57,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "# Write tokens to a curl config file so they don't appear in ps output.",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/google-patents/scripts/patents.sh",
+      "line": 16,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "resp=$(curl -s --connect-timeout 10 --max-time 30 -w \"\\n%{http_code}\" \"$url\" 2>/dev/null)",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/google-patents/scripts/patents.sh",
+      "line": 106,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "desc_text=$(curl -s --connect-timeout 10 --max-time 30 \"$desc_link\" | html_to_text)",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/google-patents/scripts/patents.sh",
+      "line": 119,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "desc_text=$(curl -s --connect-timeout 10 --max-time 30 \"$desc_link\" | html_to_text)",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/google-patents/scripts/patents.sh",
+      "line": 140,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -s --connect-timeout 10 --max-time 60 -o \"$outfile\" \"$pdf_url\"",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/signalradar/scripts/sync_md_to_notion_v4.sh",
+      "line": 155,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "page_data=$(curl -s --max-time 30 -X GET \"${API_BASE}/blocks/${PARENT_PAGE}/children?page_size=100\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/signalradar/scripts/sync_md_to_notion_v4.sh",
+      "line": 226,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "block_ids=$(curl -s -X GET \"${API_BASE}/blocks/${page_id}/children\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/signalradar/scripts/sync_md_to_notion_v4.sh",
+      "line": 231,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -s -X DELETE \"${API_BASE}/blocks/${block_id}\" \"${headers[@]}\" >/dev/null 2>&1 || true",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/signalradar/scripts/sync_md_to_notion_v4.sh",
+      "line": 234,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -s -X PATCH \"${API_BASE}/blocks/${page_id}/children\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/signalradar/scripts/sync_md_to_notion_v4.sh",
+      "line": 243,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "response=$(curl -s -X POST \"${API_BASE}/pages\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/signalradar/scripts/sync_md_to_notion_v4.sh",
+      "line": 255,
+      "severity": "warning",
+      "category": "network-call",
+      "pattern": "curl invocation",
+      "snippet": "curl -s -X PATCH \"${API_BASE}/blocks/${page_id}/children\" \\",
+      "executable_context": true
+    },
+    {
+      "file": "/private/tmp/clawhub-batch-20260303/veille/scripts/dispatch.py",
+      "line": 83,
+      "severity": "warning",
+      "category": "shell-exec",
+      "pattern": "exec/eval",
+      "snippet": "\"eval(\", \"exec(\", \"__import__(\",",
+      "executable_context": true
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+Grade: WARNING
+Scanned files: 472
+Findings: 174 (danger=0, warning=174, executable=150)
+Categories:
+  - network-call: 163
+  - shell-exec: 11
+
+Top findings:
+- [WARNING/DOC] /private/tmp/clawhub-batch-20260303/veille/README.md:244 | shell-exec | subprocess shell true
+    - **Subprocess isolation**: skill-to-skill calls use `subprocess.run()` (never `shell=True`). Script paths are validated to reside under `~/.openclaw/workspace/skills/`.
+- [WARNING/DOC] /private/tmp/clawhub-batch-20260303/veille/SKILL.md:143 | shell-exec | subprocess shell true
+    - Dispatch delegates to other OpenClaw skills via `subprocess.run()` (never `shell=True`). Script paths are validated to reside under `~/.openclaw/workspace/skills/` before execution, preventing path 
+- [WARNING/DOC] /private/tmp/clawhub-batch-20260303/veille/SKILL.md:325 | shell-exec | exec/eval
+    - Contains shell shebangs (`#!/`), SSH keys, PGP blocks, or code injection patterns (`eval(`, `exec(`, `__import__(`, `import os`, `import subprocess`)
+- [WARNING/DOC] /private/tmp/clawhub-batch-20260303/veille/SKILL.md:337 | shell-exec | exec/eval
+    result = exec("python3 scripts/veille.py fetch --hours 24 --filter-seen --filter-topic")
+- [WARNING/EXEC] /private/tmp/clawhub-batch-20260303/3dprint/SKILL.md:65 | network-call | curl invocation
+    curl http://10.0.0.41:8080/camera
+- [WARNING/EXEC] /private/tmp/clawhub-batch-20260303/3dprint/SKILL.md:66 | network-call | curl invocation
+    curl http://10.0.0.41:8080/
+- [WARNING/DOC] /private/tmp/clawhub-batch-20260303/api-gateway/SKILL.md:610 | network-call | curl invocation
+    - When using curl with URLs containing brackets (`fields[]`, `sort[]`, `records[]`), use the `-g` flag to disable glob parsing
+- [WARNING/DOC] /private/tmp/clawhub-batch-20260303/api-gateway/SKILL.md:611 | network-call | curl invocation
+    - When piping curl output to `jq`, environment variables may not expand correctly in some shells, which can cause "Invalid API key" errors
+- [WARNING/EXEC] /private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md:47 | network-call | curl invocation
+    curl -X POST "https://rb.all-completed.com/api/sessions" \
+- [WARNING/EXEC] /private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md:59 | network-call | curl invocation
+    curl "https://rb.all-completed.com/api/sessions" \
+- [WARNING/EXEC] /private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md:66 | network-call | curl invocation
+    curl "https://rb.all-completed.com/api/stored-sessions" \
+- [WARNING/EXEC] /private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md:75 | network-call | curl invocation
+    curl -X POST "https://rb.all-completed.com/api/sessions/{session_id}/navigate" \
+- [WARNING/EXEC] /private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md:81 | network-call | curl invocation
+    curl -X POST "https://rb.all-completed.com/api/sessions/{session_id}/navigate" \
+- [WARNING/EXEC] /private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md:91 | network-call | curl invocation
+    curl "https://rb.all-completed.com/api/sessions/{session_id}/json" \
+- [WARNING/EXEC] /private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md:95 | network-call | curl invocation
+    curl "https://rb.all-completed.com/api/sessions/{session_id}/json?filter=interactive" \
+- [WARNING/EXEC] /private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md:99 | network-call | curl invocation
+    curl "https://rb.all-completed.com/api/sessions/{session_id}/json?depth=5" \
+- [WARNING/EXEC] /private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md:109 | network-call | curl invocation
+    curl "https://rb.all-completed.com/api/sessions/{session_id}/text" \
+- [WARNING/EXEC] /private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md:113 | network-call | curl invocation
+    curl "https://rb.all-completed.com/api/sessions/{session_id}/text?mode=raw" \
+- [WARNING/EXEC] /private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md:123 | network-call | curl invocation
+    curl "https://rb.all-completed.com/api/sessions/{session_id}/screenshot" \
+- [WARNING/EXEC] /private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md:127 | network-call | curl invocation
+    curl "https://rb.all-completed.com/api/sessions/{session_id}/screenshot?raw=true" \
+- [WARNING/EXEC] /private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md:132 | network-call | curl invocation
+    curl "https://rb.all-completed.com/api/sessions/{session_id}/screenshot?quality=50&raw=true" \
+- [WARNING/EXEC] /private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md:141 | network-call | curl invocation
+    curl -X POST "https://rb.all-completed.com/api/sessions/{session_id}/action" \
+- [WARNING/EXEC] /private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md:147 | network-call | curl invocation
+    curl -X POST "https://rb.all-completed.com/api/sessions/{session_id}/action" \
+- [WARNING/EXEC] /private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md:153 | network-call | curl invocation
+    curl -X POST "https://rb.all-completed.com/api/sessions/{session_id}/action" \
+- [WARNING/EXEC] /private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md:159 | network-call | curl invocation
+    curl -X POST "https://rb.all-completed.com/api/sessions/{session_id}/action" \
+- [WARNING/EXEC] /private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md:165 | network-call | curl invocation
+    curl -X POST "https://rb.all-completed.com/api/sessions/{session_id}/action" \
+- [WARNING/EXEC] /private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md:170 | network-call | curl invocation
+    curl -X POST "https://rb.all-completed.com/api/sessions/{session_id}/action" \
+- [WARNING/EXEC] /private/tmp/clawhub-batch-20260303/remote-browser-service/SKILL.md:182 | network-call | curl invocation
+    curl "https://rb.all-completed.com/api/sessions/{session_id}/html" \
+- [WARNING/DOC] /private/tmp/clawhub-batch-20260303/portrait-generator/SKILL.md:234 | network-call | curl invocation
+    `["auto","Duchenne smile","social smile","bitter smile","coy smile","broad grin","closed-lip smile","smirk","radiant joy","gentle warmth","laughing","tearful","melancholic gaze","lip tremble","downcas
+- [WARNING/DOC] /private/tmp/clawhub-batch-20260303/apple-music-dj/CHANGELOG.md:93 | network-call | curl invocation
+    - Tokens passed via `curl -K` config files instead of CLI arguments (prevents `ps aux` exposure)

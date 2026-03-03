@@ -1,0 +1,5 @@
+metric,value
+total_tested,81
+passed,46
+rejected,31
+error,4
