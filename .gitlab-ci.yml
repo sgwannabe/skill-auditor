@@ -1,0 +1,32 @@
+stages:
+  - audit
+
+variables:
+  PIP_DISABLE_PIP_VERSION_CHECK: "1"
+
+skill_audit_mr:
+  stage: audit
+  image: python:3.11-slim
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+  script:
+    - python --version
+    - python auditor.py --target . --exclude '.git/*,node_modules/*,__pycache__/*,*.min.js,report.json,results/*' --out audit-report.json --fail-on never
+    - python scripts/gitlab_mr_comment.py --report audit-report.json --summary audit-summary.md
+  artifacts:
+    when: always
+    paths:
+      - audit-report.json
+      - audit-summary.md
+
+skill_audit_schedule:
+  stage: audit
+  image: python:3.11-slim
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+  script:
+    - python auditor.py --target . --exclude '.git/*,node_modules/*,__pycache__/*,*.min.js,report.json,results/*' --out audit-report.json --fail-on danger
+  artifacts:
+    when: always
+    paths:
+      - audit-report.json

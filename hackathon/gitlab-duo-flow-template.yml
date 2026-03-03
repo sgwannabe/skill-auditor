@@ -1,0 +1,25 @@
+# Example GitLab Duo Flow template (concept)
+# Use this as a starting point for the GitLab AI Hackathon submission.
+name: duo-skill-auditor-flow
+version: 1
+
+trigger:
+  type: merge_request.updated
+
+actions:
+  - name: run_skill_auditor
+    type: pipeline.run
+    config:
+      file: .gitlab-ci.yml
+      job: skill_audit_mr
+
+  - name: comment_findings
+    type: merge_request.comment
+    config:
+      source: artifact://audit-summary.md
+
+  - name: label_risk
+    type: merge_request.label
+    config:
+      when: "actionable > 0"
+      add: ["security-risk"]

@@ -63,3 +63,11 @@ python3 auditor.py --target ./skills --fail-on danger
 - 문서/레퍼런스 폴더는 `--exclude`로 제외
 - 정상 도메인은 `--allow-domains`에 추가
 - 정책 위반 차단은 `--fail-on danger`부터 시작
+
+
+## GitLab Duo Hackathon Integration (WIP)
+- CI flow template: `.gitlab-ci.yml`
+- MR comment helper: `scripts/gitlab_mr_comment.py`
+- Hackathon docs: `hackathon/HACKATHON_SUBMISSION.md`
+- 3-min demo script: `hackathon/DEMO_SCRIPT_3MIN.md`
+- Duo flow concept YAML: `hackathon/gitlab-duo-flow-template.yml`
